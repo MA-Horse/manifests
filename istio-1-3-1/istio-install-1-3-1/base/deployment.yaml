@@ -66,6 +66,10 @@ spec:
         - --self-signed-ca=true
         - --workload-cert-ttl=2160h
         env:
+        - name: http_proxy
+          value: "http://47.104.224.148:30001"
+        - name: https_proxy
+          value: "http://47.104.224.148:30001"
         - name: CITADEL_ENABLE_NAMESPACES_BY_DEFAULT
           value: "true"
         image: gcr.io/istio-release/citadel:release-1.3-latest-daily
@@ -151,6 +155,11 @@ spec:
         - --monitoringPort=15014
         - --log_output_level=default:info
         image: gcr.io/istio-release/galley:release-1.3-latest-daily
+        env:
+        - name: http_proxy
+          value: "http://47.104.224.148:30001"
+        - name: https_proxy
+          value: "http://47.104.224.148:30001"
         imagePullPolicy: IfNotPresent
         livenessProbe:
           exec:
@@ -285,6 +294,10 @@ spec:
         - --discoveryAddress
         - istio-pilot:15011
         env:
+        - name: http_proxy
+          value: "http://47.104.224.148:30001"
+        - name: https_proxy
+          value: "http://47.104.224.148:30001"
         - name: NODE_NAME
           valueFrom:
             fieldRef:
@@ -476,6 +489,10 @@ spec:
         - --keepaliveMaxServerConnectionAge
         - 30m
         env:
+        - name: http_proxy
+          value: "http://47.104.224.148:30001"
+        - name: https_proxy
+          value: "http://47.104.224.148:30001"
         - name: POD_NAME
           valueFrom:
             fieldRef:
@@ -663,6 +680,10 @@ spec:
         - --useTemplateCRDs=false
         - --trace_zipkin_url=http://zipkin.$(namespace):9411/api/v1/spans
         env:
+        - name: http_proxy
+          value: "http://47.104.224.148:30001"
+        - name: https_proxy
+          value: "http://47.104.224.148:30001"
         - name: GODEBUG
           value: gctrace=1
         - name: GOMAXPROCS
@@ -837,6 +858,11 @@ spec:
         - --healthCheckInterval=2s
         - --healthCheckFile=/health
         image: gcr.io/istio-release/sidecar_injector:release-1.3-latest-daily
+        env:
+        - name: http_proxy
+          value: "http://47.104.224.148:30001"
+        - name: https_proxy
+          value: "http://47.104.224.148:30001"
         imagePullPolicy: IfNotPresent
         livenessProbe:
           exec:
@@ -965,6 +991,10 @@ spec:
         - --loadsheddingMode
         - enforce
         env:
+        - name: http_proxy
+          value: "http://47.104.224.148:30001"
+        - name: https_proxy
+          value: "http://47.104.224.148:30001"
         - name: GODEBUG
           value: gctrace=1
         - name: GOMAXPROCS
@@ -1132,6 +1162,11 @@ spec:
         - --storage.tsdb.retention=6h
         - --config.file=/etc/prometheus/prometheus.yaml
         image: docker.io/prom/prometheus:v2.8.0
+        env:
+        - name: http_proxy
+          value: "http://47.104.224.148:30001"
+        - name: https_proxy
+          value: "http://47.104.224.148:30001"
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:

@@ -14232,6 +14232,10 @@ data:
         - "[[ annotation .ObjectMeta `readiness.status.sidecar.istio.io/applicationPorts` (applicationPorts .Spec.Containers) ]]"
       [[- end ]]
         env:
+        - name: http_proxy
+          value: "http://47.104.224.148:30001"
+        - name: https_proxy
+          value: "http://47.104.224.148:30001"
         - name: POD_NAME
           valueFrom:
             fieldRef:
@@ -16370,6 +16374,10 @@ spec:
               path: /login
               port: 3000
           env:
+          - name: http_proxy
+            value: "http://47.104.224.148:30001"
+          - name: https_proxy
+            value: "http://47.104.224.148:30001"
           - name: GRAFANA_PORT
             value: "3000"
           - name: GF_AUTH_BASIC_ENABLED
@@ -16524,6 +16532,10 @@ spec:
         - "-v"
         - "4"
         env:
+        - name: http_proxy
+          value: "http://47.104.224.148:30001"
+        - name: https_proxy
+          value: "http://47.104.224.148:30001"
         - name: ACTIVE_NAMESPACE
           valueFrom:
             fieldRef:
@@ -16680,6 +16692,10 @@ spec:
           - --useAdapterCRDs=true
           - --trace_zipkin_url=http://zipkin:9411/api/v1/spans
         env:
+        - name: http_proxy
+          value: "http://47.104.224.148:30001"
+        - name: https_proxy
+          value: "http://47.104.224.148:30001"
         - name: GODEBUG
           value: "gctrace=1"
         - name: GOMAXPROCS
@@ -16856,6 +16872,10 @@ spec:
           - --loadsheddingMode
           - enforce
         env:
+        - name: http_proxy
+          value: "http://47.104.224.148:30001"
+        - name: https_proxy
+          value: "http://47.104.224.148:30001"
         - name: GODEBUG
           value: "gctrace=1"
         - name: GOMAXPROCS
@@ -16996,6 +17016,10 @@ spec:
             periodSeconds: 30
             timeoutSeconds: 5
           env:
+          - name: http_proxy
+            value: "http://47.104.224.148:30001"
+          - name: https_proxy
+            value: "http://47.104.224.148:30001"
           - name: POD_NAME
             valueFrom:
               fieldRef:

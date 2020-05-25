@@ -8,6 +8,10 @@ spec:
       containers:
       - name: manager
         env:
+          - name: http_proxy
+            value: "http://47.104.224.148:30001"
+          - name: https_proxy
+            value: "http://47.104.224.148:30001"
           - name: USE_ISTIO
             value: $(USE_ISTIO)
           - name: ISTIO_GATEWAY
